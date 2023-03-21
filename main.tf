@@ -13,12 +13,15 @@ terraform {
     }
   }
   required_version = ">= 1.1.0"
-  cloud {
-    organization = "cornebester"
+  # cloud {
+  #   organization = "cornebester"
 
-    workspaces {
-      name = "gh-actions-demo"
-    }
+  #   workspaces {
+  #     name = "gh-actions-demo"
+  #   }
+  # }
+
+    backend "s3" {
   }
 }
 
