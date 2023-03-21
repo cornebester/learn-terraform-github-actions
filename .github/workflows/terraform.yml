@@ -28,7 +28,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config=backend.personal.tfvars
+        run: "terraform init -backend-config=backend.personal.tfvars"
       
       - name: Terraform Validate
         id: validate
