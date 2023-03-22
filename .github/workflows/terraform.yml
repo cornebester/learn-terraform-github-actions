@@ -27,6 +27,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
+      
+      - name: downlaod backend
+        id: dwnld
+        run: aws s3api get-object --bucket ${TF_VAR_state_bucket} --key backend.personal.tfvars backend.personal.tfvarsm
 
       - name: Terraform Format
         id: fmt
