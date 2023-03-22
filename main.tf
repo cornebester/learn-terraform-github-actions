@@ -22,6 +22,7 @@ terraform {
   # }
 
   backend "s3" {
+    bucket = var.state_bucket
   }
 }
 
@@ -87,6 +88,3 @@ variable "state_bucket" {
 
 }
 
-locals {
-  state-bucket = var.state_bucket
-}

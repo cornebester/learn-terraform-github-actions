@@ -1,4 +1,4 @@
-bucket         = local.state-bucket # my personal aws
+# bucket         = local.state-bucket # my personal aws
 key            = "dev/test/cicd"
 region         = "eu-west-1"
 dynamodb_table = "TerraformBackend"
