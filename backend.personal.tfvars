@@ -1,4 +1,4 @@
-bucket         = "corne.146632099925.terraform" # my personal aws
+bucket         = var.state_bucket # my personal aws
 key            = "dev/test/cicd"
 region         = "eu-west-1"
 dynamodb_table = "TerraformBackend"
