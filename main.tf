@@ -84,5 +84,5 @@ output "web-address" {
 }
 
 variable "state_bucket" {
-  
+
 }
