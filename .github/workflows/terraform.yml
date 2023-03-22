@@ -28,9 +28,13 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
-      - name: downlaod backend
-        id: dwnld
+      - name: Test var
+        id: testvar
         run: echo "${{ vars.TF_VAR_STATE_BUCKET }}" 
+
+      - name: Download backend
+        id: s3d
+        run: aws s3api get-object --bucket ${{ vars.TF_VAR_STATE_BUCKET }} --key backend.personal.tfvars backend.personal.tfvars
 
       - name: Terraform Format
         id: fmt
