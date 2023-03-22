@@ -86,3 +86,7 @@ output "web-address" {
 variable "state_bucket" {
 
 }
+
+locals {
+  state-bucket = var.state_bucket
+}
