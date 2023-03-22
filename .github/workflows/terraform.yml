@@ -30,7 +30,7 @@ jobs:
       
       - name: downlaod backend
         id: dwnld
-        run: aws s3api get-object --bucket $TF_VAR_STATE_BUCKET --key backend.personal.tfvars backend.personal.tfvars
+        run: echo $TF_VAR_STATE_BUCKET 
 
       - name: Terraform Format
         id: fmt
