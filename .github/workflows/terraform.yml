@@ -21,6 +21,20 @@ jobs:
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+      
+      - name: Test var
+        id: testvar
+        run: echo "${{ vars.TF_VAR_STATE_BUCKET }}" 
+
+      - name: Download backend
+        id: s3d
+        run: aws s3api get-object --bucket ${{ vars.TF_VAR_STATE_BUCKET }} --key backend.personal.tfvars backend.personal.tfvars
 
       - name: Terraform Format
         id: fmt
@@ -28,7 +42,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -backend-config="backend.personal.tfvars"
       
       - name: Terraform Validate
         id: validate
