@@ -30,7 +30,7 @@ jobs:
       
       - name: downlaod backend
         id: dwnld
-        run: echo "${{variables.TF_VAR_STATE_BUCKET}}" 
+        run: echo "${{ TF_VAR_STATE_BUCKET }}" 
 
       - name: Terraform Format
         id: fmt
